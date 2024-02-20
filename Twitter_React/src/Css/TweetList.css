@@ -1,0 +1,15 @@
+.list-outer{
+    list-style: none;
+    
+}
+.list{
+    border:  2px solid;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: 60%;
+    gap: 10px;
+}
+.list span{
+    font-size: 30px;
+}
