@@ -1,20 +1,22 @@
 import { useState } from "react";
-import Twitter from "./Twitter";
-function AddTweet({ onAddTweet }) {
+function AddTweet({ onAddTweet ,sortTweet}) {
   const [text, setText] = useState("");
+
   return (
     <>
-      <input type="text" onChange={(e) => setText(e.target.value)} />
+      <input type="text" value={text} onChange={(e) => setText(e.target.value)} />
+   <button onClick={()=>{
+     onAddTweet(text);
+     setText('')
+   }}>Tweet</button>
+
       <button
-        onClick={() => {
-          onAddTweet(text);
-          setText("");
-        }}
-      >
-        Tweet
-      </button>
+      onClick={()=>{
+        sortTweet();
+      }}
+      >Sort tweets </button>
     </>
   );
 }
 export default AddTweet;
-``;
+

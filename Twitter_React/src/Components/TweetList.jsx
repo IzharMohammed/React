@@ -7,6 +7,7 @@ function TweetList({ tweets, onEdit }) {
       <ul className="list-outer">
         {tweets.map((tweets) => (
           <li className="list">
+            <div className="tweet-heading-edit">
             <div>
               {isEditting ? (
                 <input
@@ -25,13 +26,15 @@ function TweetList({ tweets, onEdit }) {
                 tweets.content
               )}
             </div>
-            <div>
               <button onClick={() => setIsEditting(!isEditting)}>
                 {isEditting ? "Save" : "Edit"}
               </button>
-
+              </div>
+            <div>
+              <div className="likes-createdAt">
               <div>{tweets.likes} likes</div>
               <div> Created At : {String(tweets.createdAt)}</div>
+              </div>
             </div>
           </li>
         ))}

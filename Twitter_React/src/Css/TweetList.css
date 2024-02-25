@@ -1,6 +1,8 @@
 .list-outer{
     list-style: none;
-    
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 .list{
     border:  2px solid;
@@ -12,4 +14,13 @@
 }
 .list span{
     font-size: 30px;
+}
+.tweet-heading-edit{
+    display: flex;
+    justify-content: space-between;
+}
+.likes-createdAt{
+    display: flex;
+    justify-content: space-between;
+
 }
