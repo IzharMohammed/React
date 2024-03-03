@@ -8,8 +8,6 @@ const{addTodo}=useTodo();
 const add = (e)=>{
     e.preventDefault();
     if(!todo) return;
-    console.log("inside");
-console.log(typeof(addTodo));
     addTodo({id:Date.now() , todo , completed : false})
 }
 

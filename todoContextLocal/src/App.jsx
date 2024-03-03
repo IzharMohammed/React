@@ -8,7 +8,7 @@ function App() {
   const [todos, settodos] = useState([]);
 
   const addTodo = (todo) => {
-    console.log("inside");
+   
 
           settodos((prev)=>[{...todo},...prev])
   };
@@ -25,14 +25,31 @@ settodos((prev)=>prev.map((prevTodo)=>prevTodo.id===id ? todo : prevTodo))
     settodos((prev)=>prev.map((prevTodo)=>prevTodo.id===id ? {...prevTodo , completed : !prevTodo.completed} :prevTodo))
   };      
 
-useEffect(()=>{
+/* useEffect(()=>{
   console.log(localStorage.getItem("todos"));
- /*console.log((typeof( JSON.parse(localStorage.getItem("todos"))))) */
-  console.log(todos);
-    if (todos ) { // Check if todos is an array
-      settodos(todos);
-    }
-},[])
+ let todos = JSON.parse(localStorage.getItem("todos"));
+ if (todos ) { // Check if todos is an array
+  settodos(todos);
+}
+},[]) */
+
+useEffect(() => {
+  console.log("Inside useEffect");
+  const storedTodos = JSON.parse(localStorage.getItem("todos"));
+  console.log("Stored Todos:", storedTodos);
+  if (storedTodos) {
+    settodos(storedTodos);
+  }
+}, []);
+
+
+/* useEffect(() => {
+  const storedTodos = JSON.parse(localStorage.getItem("todos"));
+  if (storedTodos) {
+    settodos(storedTodos);
+  }
+}, []);
+ */
 
 useEffect(()=>{
   localStorage.setItem("todos" , JSON.stringify(todos))
@@ -52,15 +69,15 @@ useEffect(()=>{
             <TodoForm />
             </div>
           <div className="flex flex-wrap gap-y-3">
-            {/*Loop and Add TodoItem here */}
-            <div>izhar</div>
+            {/*Loop and Add TodoItem here */}        
         {
-          todos.map((todo)=>(
-            <div key={todo.id} className="w-full"><TodoItem todo={todo} /></div>
-          ))
-        }
-          </div>
+          todos.map((todo)=>(       
+            <div key={todo.id} className="w-full">
+              <TodoItem todo={todo} />
+              </div>
+            )) }
         </div>
+            </div>
       </div>
     </TodoContentProvider>
   );
