@@ -1,0 +1,21 @@
+.item-input-wrapper {
+    margin-top: 4rem;
+    margin-left: 29rem;
+    display: flex;
+    gap: 30px;
+}
+
+.item-input {
+padding: 1rem;
+width: 20rem;
+}
+
+.item-input-button {
+    width: 4rem;
+    height: 2rem;
+    margin-top: 10px;
+}
+
+.item-input:focus {
+    outline: none;
+}
