@@ -2,13 +2,13 @@ import React from "react";
 import "./ItemList.css";
 import Item from "../Item/Item";
 
-function Itemlist({ shoppinglist }) {
+function Itemlist({addQuantity ,removeQuantity ,   shoppinglist }) {
   return (
     <div>
-      {shoppinglist.map((item) => {
+      {shoppinglist && shoppinglist.map((item) => {
         return (
-          <div key={shoppinglist.id}>
-            <Item itemName={item.name} quantity={item.quantity} />
+          <div key={item.id}>
+            <Item id={item.id} addQuantity={addQuantity}  removeQuantity={removeQuantity}itemName={item.name} quantity={item.quantity} />
           </div>
         );
       })}
