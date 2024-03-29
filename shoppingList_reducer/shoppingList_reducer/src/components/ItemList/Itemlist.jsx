@@ -8,7 +8,8 @@ function Itemlist({addQuantity ,removeQuantity ,   shoppinglist }) {
       {shoppinglist && shoppinglist.map((item) => {
         return (
           <div key={item.id}>
-            <Item id={item.id} addQuantity={addQuantity}  removeQuantity={removeQuantity}itemName={item.name} quantity={item.quantity} />
+            <Item id={item.id} addQuantity={addQuantity}  removeQuantity={removeQuantity} itemName={item.name} quantity={item.quantity} />
+
           </div>
         );
       })}

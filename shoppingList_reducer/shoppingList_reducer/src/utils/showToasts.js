@@ -12,3 +12,8 @@ export function showError(messasge) {
     });
 }
 
+export function showNotify(message){
+    toast.error(message , {
+        position: toast.POSITION.TOP_RIGHT,
+    })
+}
