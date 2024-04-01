@@ -10,6 +10,7 @@ function ShoppingList() {
   const [shoppingItems, dispatch] = useReducer(itemReducer, []);
 
   const handleAddItem = (name) => {
+    console.log(name);
     dispatch({
       type: "add_item",
       itemName: name,

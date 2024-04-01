@@ -9,7 +9,6 @@ function Itemlist({addQuantity ,removeQuantity ,   shoppinglist }) {
         return (
           <div key={item.id}>
             <Item id={item.id} addQuantity={addQuantity}  removeQuantity={removeQuantity} itemName={item.name} quantity={item.quantity} />
-
           </div>
         );
       })}
