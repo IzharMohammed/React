@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./ItemList.css";
 import Item from "../Item/Item";
+import { ShoppingItemsContext } from "../../providers/ShoppingContext";
 
-function Itemlist({addQuantity ,removeQuantity ,   shoppinglist }) {
+function Itemlist() {
+
+  const shoppinglist=useContext(ShoppingItemsContext)
+
   return (
     <div>
       {shoppinglist && shoppinglist.map((item) => {
         return (
           <div key={item.id}>
-            <Item id={item.id} addQuantity={addQuantity}  removeQuantity={removeQuantity} itemName={item.name} quantity={item.quantity} />
+            <Item id={item.id}  itemName={item.name} quantity={item.quantity} />
           </div>
         );
       })}
