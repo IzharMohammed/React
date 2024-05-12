@@ -2,28 +2,26 @@ import { useReducer, useState } from "react";
 import "./App.css";
 import Todo from "./Todo";
 
- export const ACTIONS = {
-  ADD_TODO  : 'addTodo',
-  TOGGLE_TODO : 'toggleTodo',
-  DELETE_TODO : 'deleteTodo'
-}
+export const ACTIONS = {
+  ADD_TODO: "addTodo",
+  TOGGLE_TODO: "toggleTodo",
+  DELETE_TODO: "deleteTodo",
+};
 
 function reducer(todos, action) {
   if (action.type === ACTIONS.ADD_TODO) {
     return [...todos, addTodo(action.payload)];
   }
+
   if (action.type === ACTIONS.TOGGLE_TODO) {
-    return todos.map((todo) => {
-      if (todo.id === action.payload.id) {
-        return { ...todo, isComplete: !todo.isComplete };
-      }
-    });
+  return todos.map(todo => todo.id === action.payload.id ? { ...todo, isComplete: !todo.isComplete } : todo); 
   }
 
-  if(action.type === ACTIONS.DELETE_TODO){
-   return todos.filter(todo=>todo.id!==action.payload.id)
+  if (action.type === ACTIONS.DELETE_TODO) {
+    return todos.filter((todo) => todo.id !== action.payload.id);
   }
 
+  return todos;
 }
 
 function addTodo(name) {
@@ -38,6 +36,7 @@ function App() {
   function handlesubmit(e) {
     e.preventDefault();
     dispatch({ type: "addTodo", payload: name });
+    console.log(todos);
     setName("");
   }
 
@@ -51,7 +50,7 @@ function App() {
         />
       </form>
       {todos.map((todo) => (
-        <Todo todo={todo} dispatch={dispatch} />
+        <Todo todo={todo} dispatch={dispatch} /> 
       ))}
     </>
   );
