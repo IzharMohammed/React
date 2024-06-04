@@ -14,7 +14,7 @@ const store = createStore(demoReducer, initialState);
 console.log(store);
 
 console.log(store.getState());
-
+//These functions are called as action creators
 const add_item = (name, quantity) => ({
     type: 'add_item',
     itemName: name,
